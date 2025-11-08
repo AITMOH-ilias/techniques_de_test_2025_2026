@@ -42,8 +42,9 @@ tester entrée/sortie/performances/qualite du code
 -Qualite du code:
 
     on va utiliser l'outils ruff avec ses règles de base et en definir de nouvelles. on utilisera cette commande pour verifier si tout est ok 'ruff check'
-
-
+    
+    pdoc3 pour créer la doc du fichier 
+    
 -Test de performance:
 
     -Faire des test de temps sur l'excution de l'algorithms, la complexité de l'algo de base est de O(n^2) mais peut etre optimisée pour une complexité de O(nlog(n)) selon la complexité de l'algo faire un test avec plusieurs jeu de variables et voir si le temps trouvé est coherent par rapport à la taille du PointSet et ça complexité

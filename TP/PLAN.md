@@ -37,7 +37,6 @@ tester entrée/sortie/performances/qualite du code
             - bonne valeur en entrée(Formatage, et valeur) / bonne valeur de sortie (Format et valeur de sortie)
             - mauvaise valeur en entrée(Formatage, et valeur) / Erreur sortie: mauvais type d'entrée (exemple: moins de 3 points, pas de triangles)
             - aucune valeur en entrée / Erreur sortie: absence d'entrée 
-    
      
 -Qualite du code:
 

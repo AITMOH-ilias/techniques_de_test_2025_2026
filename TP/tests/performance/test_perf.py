@@ -3,8 +3,8 @@ import time
 import struct
 import random
 
-# from triangulator.models import PointSet, Triangles
-# from triangulator.core import triangulate
+from triangulator.models import PointSet, Triangles
+from triangulator.core import triangulate
 TIMEOUT_DESERIALIZATION = 1.0
 TIMEOUT_ALGORITHM = 5.0
 TIMEOUT_SERIALIZATION = 1.0
@@ -15,15 +15,15 @@ LARGE_N = 10000
 @pytest.mark.performance
 def test_performance_gros_dataset():
     # mesure le temps de triangulation pour un grand nombre de points.
-    # avec 10 000 points aléatoires
+    # avec 10 000 points alignés
     points = [(i * 1.0, i * 1.0) for i in range(10000)] 
     
     start_time = time.time()
-    # triangulate(points)
+    triangulate(points)
     duration = time.time() - start_time
     
     #on définit un seuil acceptable 2 secondes
-    # assert duration < 2.0, f"Triangulation trop lente: {duration}s"
+    assert duration < 2.0, f"Triangulation trop lente: {duration}s"
     pass
 
 
@@ -59,7 +59,7 @@ class TestPerformance:
         start_time = time.perf_counter()
         
     
-        # point_set = PointSet.from_bytes(binary_data)
+        point_set = PointSet.from_bytes(binary_data)
         
         # simulation
         time.sleep(0.1) 
@@ -80,10 +80,10 @@ class TestPerformance:
         
         start_time = time.perf_counter()
                 
-        # result = triangulate(points)
+        result = triangulate(points)
         
         # simulation
-        time.sleep(0.5)
+       # time.sleep(0.5)
         
         end_time = time.perf_counter()
         duration = end_time - start_time
@@ -98,14 +98,14 @@ class TestPerformance:
         n_triangles = LARGE_N * 2
         
         # On simule les données d'entrée
-        # points_data = [(0.0, 0.0)] * LARGE_N
-        # indices_data = [(0, 1, 2)] * n_triangles
+        points_data = [(0.0, 0.0)] * LARGE_N
+        indices_data = [(0, 1, 2)] * n_triangles
         
-        # triangles_obj = Triangles(points=points_data, triangles=indices_data)
+        triangles_obj = Triangles(points=points_data, triangles=indices_data)
         
         #On mesure la génération du binaire
         start_time = time.perf_counter()
-        # binary_out = triangles_obj.to_bytes()
+        binary_out = triangles_obj.to_bytes()
         
         # simulation
         time.sleep(0.1)

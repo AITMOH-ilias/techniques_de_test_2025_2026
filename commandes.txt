@@ -1,0 +1,11 @@
+make unit_test : python -m pytest tests/unit tests/integration -v
+
+make perf_test : python -m pytest tests/performance -v
+
+make coverage : python -m pytest --cov=triangulator tests/ --cov-report=html --cov-report=term
+
+make lint : python -m ruff check .
+
+make doc : python -m pdoc --html --output-dir docs triangulator --force
+
+make clean : Remove-Item -Recurse -Force __pycache__, .pytest_cache, .coverage, htmlcov, docs
